@@ -1,0 +1,16 @@
+{
+  "name": "docmd-blog",
+  "version": "1.0.0",
+  "description": "商子羽的个人博客 - 基于 docmd 构建",
+  "scripts": {
+    "dev": "docmd dev",
+    "build": "docmd build",
+    "deploy:gh-pages": "docmd deploy --github-pages"
+  },
+  "keywords": ["blog", "docmd", "wordpress-export"],
+  "author": "商子羽",
+  "license": "MIT",
+  "devDependencies": {
+    "@docmd/core": "^0.9.0"
+  }
+}

@@ -1,0 +1,208 @@
+/* Custom styles for 商子羽的博客 - Argon 风格改造 */
+
+/* ===== 基础排版（中文字体优化）===== */
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Noto Sans CJK SC', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+  line-height: 1.8;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 600;
+  margin-top: 1.5em;
+  margin-bottom: 0.5em;
+}
+
+/* ===== Argon 风格改造 ===== */
+
+/* 1. 主题色沉浸：定义 Argon 蓝 + 派生色变量 */
+:root {
+  --argon-primary: #4e8ef7;
+  --argon-primary-rgb: 78, 142, 247;
+  --argon-card-radius: 15px;
+  --argon-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.06), 0 1px 3px rgba(0, 0, 0, 0.04);
+  --argon-card-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.1), 0 2px 6px rgba(0, 0, 0, 0.06);
+
+  /* 覆盖 docmd 变量 */
+  --link-color: var(--argon-primary);
+  --link-color-hover: #3b7dd8;
+  --radius-lg: var(--argon-card-radius);
+  --radius-xl: var(--argon-card-radius);
+}
+
+:root[data-theme="dark"] {
+  --argon-primary: #5b9bff;
+  --argon-primary-rgb: 91, 155, 255;
+  --argon-card-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+  --argon-card-shadow-hover: 0 6px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* 2. 页面背景：浅灰，让白色卡片更突出 */
+body {
+  background-color: #f5f6f8;
+}
+
+:root[data-theme="dark"] body {
+  background-color: #1a1a1d;
+}
+
+/* 3. 主内容区卡片化 */
+.main-content,
+main {
+  background: var(--bg-color);
+  border-radius: var(--argon-card-radius);
+  box-shadow: var(--argon-card-shadow);
+  padding: 2rem 2.5rem;
+  margin: 1rem 0;
+  transition: box-shadow 0.3s ease;
+}
+
+/* 4. 侧栏卡片化 */
+.sidebar {
+  background: var(--bg-color);
+  border-radius: var(--argon-card-radius);
+  box-shadow: var(--argon-card-shadow);
+  padding: 1.25rem;
+  margin: 1rem 0;
+}
+
+/* 5. 顶栏毛玻璃效果 */
+.page-header,
+header {
+  backdrop-filter: blur(12px) saturate(180%);
+  -webkit-backdrop-filter: blur(12px) saturate(180%);
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+:root[data-theme="dark"] .page-header,
+:root[data-theme="dark"] header {
+  background: rgba(26, 26, 29, 0.75) !important;
+  border-bottom-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 6. 引文块：弱主题色背景 + 主题色左边框 */
+blockquote {
+  border-left: 4px solid var(--argon-primary);
+  background: rgba(var(--argon-primary-rgb), 0.08);
+  padding: 12px 18px;
+  margin: 16px 0;
+  border-radius: 0 8px 8px 0;
+  color: #364863;
+}
+
+:root[data-theme="dark"] blockquote {
+  background: rgba(var(--argon-primary-rgb), 0.12);
+  color: #c8ccd4;
+}
+
+blockquote p {
+  margin: 0;
+}
+
+/* 7. 代码块 Mac 风格：顶部三色圆点 */
+pre {
+  position: relative;
+  border-radius: var(--argon-card-radius);
+  padding-top: 2.25rem;
+  box-shadow: var(--argon-card-shadow);
+  font-size: 0.875rem;
+}
+
+pre::before {
+  content: "";
+  position: absolute;
+  top: 0.75rem;
+  left: 1rem;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  background: #fc625d;
+  box-shadow: 1.25rem 0 0 #fdbc40, 2.5rem 0 0 #35cd4b;
+}
+
+/* 8. 行内代码：主题色背景 */
+:not(pre) > code {
+  background: rgba(var(--argon-primary-rgb), 0.1);
+  color: var(--argon-primary);
+  padding: 0.15em 0.4em;
+  border-radius: 4px;
+  font-size: 0.875em;
+}
+
+/* 9. 文章列表项卡片化 */
+main ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+main ul li {
+  background: var(--bg-color);
+  border-radius: var(--argon-card-radius);
+  box-shadow: var(--argon-card-shadow);
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  border-bottom: none;
+  transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+main ul li:hover {
+  box-shadow: var(--argon-card-shadow-hover);
+  transform: translateY(-2px);
+}
+
+main ul li:last-child {
+  border-bottom: none;
+}
+
+/* 10. 链接悬停：主题色 */
+a {
+  transition: color 0.2s ease, text-decoration 0.2s ease;
+}
+
+a:hover {
+  color: var(--argon-primary);
+}
+
+/* 11. 表格圆角化 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  border-radius: var(--argon-card-radius);
+  overflow: hidden;
+  box-shadow: var(--argon-card-shadow);
+}
+
+th, td {
+  padding: 8px 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  text-align: left;
+}
+
+:root[data-theme="dark"] th,
+:root[data-theme="dark"] td {
+  border-color: rgba(255, 255, 255, 0.1);
+}
+
+th {
+  background: rgba(0, 0, 0, 0.03);
+  font-weight: 600;
+}
+
+:root[data-theme="dark"] th {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* 12. 图片圆角 + 阴影 */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--argon-card-radius);
+  box-shadow: var(--argon-card-shadow);
+  margin: 16px 0;
+}
+
+/* 13. 主内容区最大宽度 */
+main {
+  max-width: 100%;
+}

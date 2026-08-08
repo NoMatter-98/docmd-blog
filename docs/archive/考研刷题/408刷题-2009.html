@@ -1,0 +1,597 @@
+<!doctype html>
+<html>
+<head>
+<meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
+
+<link href='https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color:#ffffff; --text-color:#333333; --select-text-bg-color:#B5D6FC; --select-text-font-color:auto; --monospace:"Lucida Console",Consolas,"Courier",monospace; --title-bar-height:20px; }
+.mac-os-11 { --title-bar-height:28px; }
+html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
+body { margin: 0px; padding: 0px; height: auto; inset: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; tab-size: 4; }
+iframe { margin: auto; }
+a.url { word-break: break-all; }
+a:active, a:hover { outline: 0px; }
+.in-text-selection, ::selection { text-shadow: none; background: var(--select-text-bg-color); color: var(--select-text-font-color); }
+#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; overflow-wrap: break-word; position: relative; white-space: normal; overflow-x: visible; padding-top: 36px; }
+#write.first-line-indent p { text-indent: 2em; }
+#write.first-line-indent li p, #write.first-line-indent p * { text-indent: 0px; }
+#write.first-line-indent li { margin-left: 2em; }
+.for-image #write { padding-left: 8px; padding-right: 8px; }
+body.typora-export { padding-left: 30px; padding-right: 30px; }
+.typora-export .footnote-line, .typora-export li, .typora-export p { white-space: pre-wrap; }
+.typora-export .task-list-item input { pointer-events: none; }
+@media screen and (max-width: 500px) {
+  body.typora-export { padding-left: 0px; padding-right: 0px; }
+  #write { padding-left: 20px; padding-right: 20px; }
+}
+#write li > figure:last-child { margin-bottom: 0.5rem; }
+#write ol, #write ul { position: relative; }
+img { max-width: 100%; vertical-align: middle; image-orientation: from-image; }
+button, input, select, textarea { color: inherit; font: inherit; }
+input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
+*, ::after, ::before { box-sizing: border-box; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+#write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p { position: relative; }
+p { line-height: inherit; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; break-inside: avoid; orphans: 4; }
+p { orphans: 4; }
+h1 { font-size: 2rem; }
+h2 { font-size: 1.8rem; }
+h3 { font-size: 1.6rem; }
+h4 { font-size: 1.4rem; }
+h5 { font-size: 1.2rem; }
+h6 { font-size: 1rem; }
+.md-math-block, .md-rawblock, h1, h2, h3, h4, h5, h6, p { margin-top: 1rem; margin-bottom: 1rem; }
+.hidden { display: none; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
+a { cursor: pointer; }
+sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; cursor: pointer; }
+sup.md-footnote a, sup.md-footnote a:hover { color: inherit; text-transform: inherit; text-decoration: inherit; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
+figure { overflow-x: auto; margin: 1.2em 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px; }
+thead, tr { break-inside: avoid; break-after: auto; }
+thead { display: table-header-group; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table.md-table td { min-width: 32px; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
+.CodeMirror-linenumber { user-select: none; }
+.CodeMirror { text-align: left; }
+.CodeMirror-placeholder { opacity: 0.3; }
+.CodeMirror pre { padding: 0px 4px; }
+.CodeMirror-lines { padding: 0px; }
+div.hr:focus { cursor: none; }
+#write pre { white-space: pre-wrap; }
+#write.fences-no-line-wrapping pre { white-space: pre; }
+#write pre.ty-contain-cm { white-space: normal; }
+.CodeMirror-gutters { margin-right: 4px; }
+.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
+.md-fences-adv-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
+#write .md-fences.mock-cm { white-space: pre-wrap; }
+.md-fences.md-fences-with-lineno { padding-left: 0px; }
+#write.fences-no-line-wrapping .md-fences.mock-cm { white-space: pre; overflow-x: auto; }
+.md-fences.mock-cm.md-fences-with-lineno { padding-left: 8px; }
+.CodeMirror-line, twitterwidget { break-inside: avoid; }
+svg { break-inside: avoid; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: 0px 0px; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; direction: ltr; }
+li div { padding-top: 0px; }
+blockquote { margin: 1rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
+li blockquote { margin: 1rem 0px; }
+li { margin: 0px; position: relative; }
+blockquote > :last-child { margin-bottom: 0px; }
+blockquote > :first-child, li > :first-child { margin-top: 0px; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
+#write .footnote-line { white-space: pre-wrap; }
+@media print {
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; font-variant-ligatures: no-common-ligatures; }
+  #write { margin-top: 0px; padding-top: 0px; border-color: transparent !important; padding-bottom: 0px !important; }
+  .typora-export * { -webkit-print-color-adjust: exact; }
+  .typora-export #write { break-after: avoid; }
+  .typora-export #write::after { height: 0px; }
+  .is-mac table { break-inside: avoid; }
+  .typora-export-show-outline .typora-export-sidebar { display: none; }
+}
+.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+a img, img a { cursor: pointer; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+p > .md-image:only-child:not(.md-img-error) img, p > img:only-child { display: block; margin: auto; }
+#write.first-line-indent p > .md-image:only-child:not(.md-img-error) img { left: -2em; position: relative; }
+p > .md-image:only-child { display: inline-block; width: 100%; }
+#write .MathJax_Display { margin: 0.8em 0px 0px; }
+.md-math-block { width: 100%; }
+.md-math-block:not(:empty)::after { display: none; }
+.MathJax_ref { fill: currentcolor; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus, [contenteditable="false"]:active, [contenteditable="false"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); border: none; }
+.math { font-size: 1rem; }
+.md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.md-toc-content { position: relative; margin-left: 0px; }
+.md-toc-content::after, .md-toc::after { display: none; }
+.md-toc-item { display: block; color: rgb(65, 131, 196); }
+.md-toc-item a { text-decoration: none; }
+.md-toc-inner:hover { text-decoration: underline; }
+.md-toc-inner { display: inline-block; cursor: pointer; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
+.md-toc-h2 .md-toc-inner { margin-left: 2em; }
+.md-toc-h3 .md-toc-inner { margin-left: 4em; }
+.md-toc-h4 .md-toc-inner { margin-left: 6em; }
+.md-toc-h5 .md-toc-inner { margin-left: 8em; }
+.md-toc-h6 .md-toc-inner { margin-left: 10em; }
+@media screen and (max-width: 48em) {
+  .md-toc-h3 .md-toc-inner { margin-left: 3.5em; }
+  .md-toc-h4 .md-toc-inner { margin-left: 5em; }
+  .md-toc-h5 .md-toc-inner { margin-left: 6.5em; }
+  .md-toc-h6 .md-toc-inner { margin-left: 8em; }
+}
+a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; line-height: inherit; }
+.footnote-line a:not(.reversefootnote) { color: inherit; }
+.reversefootnote { font-family: ui-monospace, sans-serif; }
+.md-attr { display: none; }
+.md-fn-count::after { content: "."; }
+code, pre, samp, tt { font-family: var(--monospace); }
+kbd { margin: 0px 0.1em; padding: 0.1em 0.6em; font-size: 0.8em; color: rgb(36, 39, 41); background: rgb(255, 255, 255); border: 1px solid rgb(173, 179, 185); border-radius: 3px; box-shadow: rgba(12, 13, 14, 0.2) 0px 1px 0px, rgb(255, 255, 255) 0px 0px 0px 2px inset; white-space: nowrap; vertical-align: middle; }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.6; font-family: var(--monospace); }
+code { text-align: left; vertical-align: initial; }
+a.md-print-anchor { white-space: pre !important; border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
+.md-diagram-panel > svg { max-width: 100%; }
+[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; height: auto; }
+[lang="mermaid"] .node text { font-size: 1rem; }
+table tr th { border-bottom: 0px; }
+video { max-width: 100%; display: block; margin: 0px auto; }
+iframe { max-width: 100%; width: 100%; border: none; }
+.highlight td, .highlight tr { border: 0px; }
+mark { background: rgb(255, 255, 0); color: rgb(0, 0, 0); }
+.md-html-inline .md-plain, .md-html-inline strong, mark .md-inline-math, mark strong { color: inherit; }
+.md-expand mark .md-meta { opacity: 0.3 !important; }
+mark .md-meta { color: rgb(0, 0, 0); }
+@media print {
+  .typora-export h1, .typora-export h2, .typora-export h3, .typora-export h4, .typora-export h5, .typora-export h6 { break-inside: avoid; }
+}
+.md-diagram-panel .messageText { stroke: none !important; }
+.md-diagram-panel .start-state { fill: var(--node-fill); }
+.md-diagram-panel .edgeLabel rect { opacity: 1 !important; }
+.md-fences.md-fences-math { font-size: 1em; }
+.md-fences-advanced:not(.md-focus) { padding: 0px; white-space: nowrap; border: 0px; }
+.md-fences-advanced:not(.md-focus) { background: inherit; }
+.typora-export-show-outline .typora-export-content { max-width: 1440px; margin: auto; display: flex; flex-direction: row; }
+.typora-export-sidebar { width: 300px; font-size: 0.8rem; margin-top: 80px; margin-right: 18px; }
+.typora-export-show-outline #write { --webkit-flex:2; flex: 2 1 0%; }
+.typora-export-sidebar .outline-content { position: fixed; top: 0px; max-height: 100%; overflow: hidden auto; padding-bottom: 30px; padding-top: 60px; width: 300px; }
+@media screen and (max-width: 1024px) {
+  .typora-export-sidebar, .typora-export-sidebar .outline-content { width: 240px; }
+}
+@media screen and (max-width: 800px) {
+  .typora-export-sidebar { display: none; }
+}
+.outline-content li, .outline-content ul { margin-left: 0px; margin-right: 0px; padding-left: 0px; padding-right: 0px; list-style: none; }
+.outline-content ul { margin-top: 0px; margin-bottom: 0px; }
+.outline-content strong { font-weight: 400; }
+.outline-expander { width: 1rem; height: 1.42857rem; position: relative; display: table-cell; vertical-align: middle; cursor: pointer; padding-left: 4px; }
+.outline-expander::before { content: ""; position: relative; font-family: Ionicons; display: inline-block; font-size: 8px; vertical-align: middle; }
+.outline-item { padding-top: 3px; padding-bottom: 3px; cursor: pointer; }
+.outline-expander:hover::before { content: ""; }
+.outline-h1 > .outline-item { padding-left: 0px; }
+.outline-h2 > .outline-item { padding-left: 1em; }
+.outline-h3 > .outline-item { padding-left: 2em; }
+.outline-h4 > .outline-item { padding-left: 3em; }
+.outline-h5 > .outline-item { padding-left: 4em; }
+.outline-h6 > .outline-item { padding-left: 5em; }
+.outline-label { cursor: pointer; display: table-cell; vertical-align: middle; text-decoration: none; color: inherit; }
+.outline-label:hover { text-decoration: underline; }
+.outline-item:hover { border-color: rgb(245, 245, 245); background-color: var(--item-hover-bg-color); }
+.outline-item:hover { margin-left: -28px; margin-right: -28px; border-left: 28px solid transparent; border-right: 28px solid transparent; }
+.outline-item-single .outline-expander::before, .outline-item-single .outline-expander:hover::before { display: none; }
+.outline-item-open > .outline-item > .outline-expander::before { content: ""; }
+.outline-children { display: none; }
+.info-panel-tab-wrapper { display: none; }
+.outline-item-open > .outline-children { display: block; }
+.typora-export .outline-item { padding-top: 1px; padding-bottom: 1px; }
+.typora-export .outline-item:hover { margin-right: -8px; border-right: 8px solid transparent; }
+.typora-export .outline-expander::before { content: "+"; font-family: inherit; top: -1px; }
+.typora-export .outline-expander:hover::before, .typora-export .outline-item-open > .outline-item > .outline-expander::before { content: "−"; }
+.typora-export-collapse-outline .outline-children { display: none; }
+.typora-export-collapse-outline .outline-item-open > .outline-children, .typora-export-no-collapse-outline .outline-children { display: block; }
+.typora-export-no-collapse-outline .outline-expander::before { content: "" !important; }
+.typora-export-show-outline .outline-item-active > .outline-item .outline-label { font-weight: 700; }
+.md-inline-math-container mjx-container { zoom: 0.95; }
+mjx-container { break-inside: avoid; }
+
+
+:root {
+    --side-bar-bg-color: #fafafa;
+    --control-text-color: #777;
+}
+
+@include-when-export url(https://fonts.loli.net/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext);
+
+/* open-sans-regular - latin-ext_latin */
+  /* open-sans-italic - latin-ext_latin */
+    /* open-sans-700 - latin-ext_latin */
+    /* open-sans-700italic - latin-ext_latin */
+  html {
+    font-size: 16px;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: "Open Sans","Clear Sans", "Helvetica Neue", Helvetica, Arial, 'Segoe UI Emoji', sans-serif;
+    color: rgb(51, 51, 51);
+    line-height: 1.6;
+}
+
+#write {
+    max-width: 860px;
+  	margin: 0 auto;
+  	padding: 30px;
+    padding-bottom: 100px;
+}
+
+@media only screen and (min-width: 1400px) {
+	#write {
+		max-width: 1024px;
+	}
+}
+
+@media only screen and (min-width: 1800px) {
+	#write {
+		max-width: 1200px;
+	}
+}
+
+#write > ul:first-child,
+#write > ol:first-child{
+    margin-top: 30px;
+}
+
+a {
+    color: #4183C4;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    position: relative;
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    cursor: text;
+}
+h1:hover a.anchor,
+h2:hover a.anchor,
+h3:hover a.anchor,
+h4:hover a.anchor,
+h5:hover a.anchor,
+h6:hover a.anchor {
+    text-decoration: none;
+}
+h1 tt,
+h1 code {
+    font-size: inherit;
+}
+h2 tt,
+h2 code {
+    font-size: inherit;
+}
+h3 tt,
+h3 code {
+    font-size: inherit;
+}
+h4 tt,
+h4 code {
+    font-size: inherit;
+}
+h5 tt,
+h5 code {
+    font-size: inherit;
+}
+h6 tt,
+h6 code {
+    font-size: inherit;
+}
+h1 {
+    font-size: 2.25em;
+    line-height: 1.2;
+    border-bottom: 1px solid #eee;
+}
+h2 {
+    font-size: 1.75em;
+    line-height: 1.225;
+    border-bottom: 1px solid #eee;
+}
+
+/*@media print {
+    .typora-export h1,
+    .typora-export h2 {
+        border-bottom: none;
+        padding-bottom: initial;
+    }
+
+    .typora-export h1::after,
+    .typora-export h2::after {
+        content: "";
+        display: block;
+        height: 100px;
+        margin-top: -96px;
+        border-top: 1px solid #eee;
+    }
+}*/
+
+h3 {
+    font-size: 1.5em;
+    line-height: 1.43;
+}
+h4 {
+    font-size: 1.25em;
+}
+h5 {
+    font-size: 1em;
+}
+h6 {
+   font-size: 1em;
+    color: #777;
+}
+p,
+blockquote,
+ul,
+ol,
+dl,
+table{
+    margin: 0.8em 0;
+}
+li>ol,
+li>ul {
+    margin: 0 0;
+}
+hr {
+    height: 2px;
+    padding: 0;
+    margin: 16px 0;
+    background-color: #e7e7e7;
+    border: 0 none;
+    overflow: hidden;
+    box-sizing: content-box;
+}
+
+li p.first {
+    display: inline-block;
+}
+ul,
+ol {
+    padding-left: 30px;
+}
+ul:first-child,
+ol:first-child {
+    margin-top: 0;
+}
+ul:last-child,
+ol:last-child {
+    margin-bottom: 0;
+}
+blockquote {
+    border-left: 4px solid #dfe2e5;
+    padding: 0 15px;
+    color: #777777;
+}
+blockquote blockquote {
+    padding-right: 0;
+}
+table {
+    padding: 0;
+    word-break: initial;
+}
+table tr {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 0;
+}
+table tr:nth-child(2n),
+thead {
+    background-color: #f8f8f8;
+}
+table th {
+    font-weight: bold;
+    border: 1px solid #dfe2e5;
+    border-bottom: 0;
+    margin: 0;
+    padding: 6px 13px;
+}
+table td {
+    border: 1px solid #dfe2e5;
+    margin: 0;
+    padding: 6px 13px;
+}
+table th:first-child,
+table td:first-child {
+    margin-top: 0;
+}
+table th:last-child,
+table td:last-child {
+    margin-bottom: 0;
+}
+
+.CodeMirror-lines {
+    padding-left: 4px;
+}
+
+.code-tooltip {
+    box-shadow: 0 1px 1px 0 rgba(0,28,36,.3);
+    border-top: 1px solid #eef2f2;
+}
+
+.md-fences,
+code,
+tt {
+    border: 1px solid #e7eaed;
+    background-color: #f8f8f8;
+    border-radius: 3px;
+    padding: 0;
+    padding: 2px 4px 0px 4px;
+    font-size: 0.9em;
+}
+
+code {
+    background-color: #f3f4f4;
+    padding: 0 2px 0 2px;
+}
+
+.md-fences {
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding-top: 8px;
+    padding-bottom: 6px;
+}
+
+
+.md-task-list-item > input {
+  margin-left: -1.3em;
+}
+
+@media print {
+    html {
+        font-size: 13px;
+    }
+    pre {
+        page-break-inside: avoid;
+        word-wrap: break-word;
+    }
+}
+
+.md-fences {
+	background-color: #f8f8f8;
+}
+#write pre.md-meta-block {
+	padding: 1rem;
+    font-size: 85%;
+    line-height: 1.45;
+    background-color: #f7f7f7;
+    border: 0;
+    border-radius: 3px;
+    color: #777777;
+    margin-top: 0 !important;
+}
+
+.mathjax-block>.code-tooltip {
+	bottom: .375rem;
+}
+
+.md-mathjax-midline {
+    background: #fafafa;
+}
+
+#write>h3.md-focus:before{
+	left: -1.5625rem;
+	top: .375rem;
+}
+#write>h4.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h5.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+#write>h6.md-focus:before{
+	left: -1.5625rem;
+	top: .285714286rem;
+}
+.md-image>.md-meta {
+    /*border: 1px solid #ddd;*/
+    border-radius: 3px;
+    padding: 2px 0px 0px 4px;
+    font-size: 0.9em;
+    color: inherit;
+}
+
+.md-tag {
+    color: #a7a7a7;
+    opacity: 1;
+}
+
+.md-toc { 
+    margin-top:20px;
+    padding-bottom:20px;
+}
+
+.sidebar-tabs {
+    border-bottom: none;
+}
+
+#typora-quick-open {
+    border: 1px solid #ddd;
+    background-color: #f8f8f8;
+}
+
+#typora-quick-open-item {
+    background-color: #FAFAFA;
+    border-color: #FEFEFE #e5e5e5 #e5e5e5 #eee;
+    border-style: solid;
+    border-width: 1px;
+}
+
+/** focus mode */
+.on-focus-mode blockquote {
+    border-left-color: rgba(85, 85, 85, 0.12);
+}
+
+header, .context-menu, .megamenu-content, footer{
+    font-family: "Segoe UI", "Arial", sans-serif;
+}
+
+.file-node-content:hover .file-node-icon,
+.file-node-content:hover .file-node-open-state{
+    visibility: visible;
+}
+
+.mac-seamless-mode #typora-sidebar {
+    background-color: #fafafa;
+    background-color: var(--side-bar-bg-color);
+}
+
+.md-lang {
+    color: #b4654d;
+}
+
+/*.html-for-mac {
+    --item-hover-bg-color: #E6F0FE;
+}*/
+
+#md-notification .btn {
+    border: 0;
+}
+
+.dropdown-menu .divider {
+    border-color: #e5e5e5;
+    opacity: 0.4;
+}
+
+.ty-preferences .window-content {
+    background-color: #fafafa;
+}
+
+.ty-preferences .nav-group-item.active {
+    color: white;
+    background: #999;
+}
+
+.menu-item-container a.menu-style-btn {
+    background-color: #f5f8fa;
+    background-image: linear-gradient( 180deg , hsla(0, 0%, 100%, 0.8), hsla(0, 0%, 100%, 0)); 
+}
+
+
+
+</style><title>408刷题</title>
+</head>
+<body class='typora-export os-windows'><div class='typora-export-content'>
+<div id='write'  class=''><h1 id='2009'><span>2009</span></h1><h2 id='还不会的'><span>还不会的：</span></h2><ul><li><p><span>T5.满二叉树n层就有（2的n次方-1）个结点</span></p></li><li><p><b><span>T6.</span></b><span>森林和二叉树的相互转换。——左孩子右兄弟</span></p><blockquote><ul><li><span>森林---&gt;二叉树。从左往右，左孩子还是左孩子，右孩子不管，右兄弟变右孩子。</span></li><li><span>二叉树---&gt;森林。右孩子连回爷爷甚至祖宗。根节点有多少个“右孩子”就还原出多少个树。这题考的就是二叉树还原成森林。</span></li></ul></blockquote></li><li><p><span>T7.无向连通图</span></p><blockquote><ul><li><span>所有顶点的度之和为边树的两倍。</span></li><li><span>完全图是指任意两顶点都有边。（无向图/有向图，简单图，无向完全图、有向完全图）</span></li></ul></blockquote></li><li><p><b><span>T8.</span></b><span>m阶B树</span></p><blockquote><p><span>B树各结点的平衡因子都是0，最下面一层是铺平的。</span></p><p><span>m阶是说最多有m个children，B-树不是二叉树</span></p><p><b><span>关键字(key)</span></b><span>non-leaf node如果有k个children，那么它必须有k-1个关键字，for what?</span></p><blockquote><ul><li><span>Each internal node&#39;s keys act as separation values which divide its subtrees. For example, if an internal node has 3 child nodes (or subtrees) then it must have 2 keys: </span><em><span>a</span></em><span>1 and </span><em><span>a</span></em><span>2. All values in the leftmost subtree will be less than </span><em><span>a</span></em><span>1, all values in the middle subtree will be between </span><em><span>a</span></em><span>1 and </span><em><span>a</span></em><span>2, and all values in the rightmost subtree will be greater than </span><em><span>a</span></em><span>2.</span></li><li><span>从而呼应上所有非叶子结点关键字递增排列。</span></li></ul><p>&nbsp;</p></blockquote><p><a href='https://www.jianshu.com/p/92d15df75027' target='_blank' class='url'>https://www.jianshu.com/p/92d15df75027</a></p></blockquote></li><li><p><span>T9. 小根堆</span></p><blockquote><ul><li><span>小根堆是不是二叉树？  堆是一种完全二叉树。——从而可以根据序列生成图。</span></li><li><span>这里考的是初始堆的插入操作——上升。</span></li></ul><p>&nbsp;</p></blockquote></li><li><p><span>T10.排序算法</span></p><blockquote><ul><li><span>总共有多少种排序算法？第七章，内部排序算法有8种。</span></li><li><span>简单排序的插入排序、选择排序、冒泡排序的动图：</span><a href='https://blog.csdn.net/l_ppp/article/details/108498581' target='_blank' class='url'>https://blog.csdn.net/l_ppp/article/details/108498581</a></li><li><span>二路归并排序示意图：</span><a href='https://www.jianshu.com/p/0e88554a5d97' target='_blank' class='url'>https://www.jianshu.com/p/0e88554a5d97</a></li></ul><p>&nbsp;</p></blockquote></li><li><p><b><span>T13</span></b><span>.要上B站找一下视频学一下，还是不太懂“浮点数的加法运算实例”</span></p><blockquote><ul><li><span>主存129号对应的是0,1,2,3,4--第四块，映射的是cache的4号</span></li></ul></blockquote></li><li><p><b><span>T23.</span></b><span>单处理机的并发性。</span></p><blockquote><ul><li><span>这里应该是主要考进程之间是并发而不是并行这个考点。</span></li><li><span>那么处理机与设备、处理机与通道、设备与设备可以并行先记住，暂时还没有什么实例可以说明原理。勉强看看这个作解析：</span><a href='https://blog.csdn.net/gz153016/article/details/50417476'><span>2009-2013操作系统考研选择题解析_gz153016的博客-CSDN博客</span></a></li></ul></blockquote></li><li><p><span>T25. 死锁</span></p><blockquote><ul><li><span>A占着显示器要打印机、B占着打印机要显示器，这就是死锁。</span></li><li><span>活锁就是两个人面对面互相礼让到某侧，然后又礼让到了右侧。</span></li><li><span>所以死锁需要的最小的进程数，就是资源被占满而又没有进程能够开始跑起来的时候。</span></li></ul></blockquote></li><li><p><span>T26分区分配管理内存空间的方式，其保护措施</span></p><blockquote><p><img src="http://tc.wujiangang.com/2023/05/27/2b122e88198e7.png" referrerpolicy="no-referrer" alt="image-20230527004528691"></p><p><span>界地址寄存器，每个进程有自己的地址，用到其他进程的地址时就会触发，实现保护。</span></p></blockquote><p><span>建议看</span><a href='https://blog.csdn.net/u010597819/article/details/105896611'><span>内存管理中的分区分配方法（1）_太阳伞下的阿呆的博客-CSDN博客</span></a></p><p><span>了解内存管理的单一连续分配、分区、分页、分段一起来看。</span></p></li><li><p><span>T30.文件控制块。</span><a href='https://blog.csdn.net/weixin_44412864/article/details/112262463' target='_blank' class='url'>https://blog.csdn.net/weixin_44412864/article/details/112262463</a></p></li><li><p><span>T31.文件共享。见：</span><a href='https://www.youtube.com/watch?v=pHiAH5gkjmM&amp;list=PLjAs5kw1NNs3Xud8c6lrimq1kCruYhoKa&amp;index=5' target='_blank' class='url'>https://www.youtube.com/watch?v=pHiAH5gkjmM&list=PLjAs5kw1NNs3Xud8c6lrimq1kCruYhoKa&index=5</a><span>。</span></p></li><li><p><span>T33. 点到点-网络层Network Layer ； 端到端-传输层Transport Layer</span></p></li><li><p><b><span>T34.</span></b><span>奈奎斯特准则,QAM调制技术</span></p><blockquote><ul><li><span>M进制码元：单位时长里的信号可以有M种高度，也就是</span><b><span>M个离散电平数目</span></b><span>，实际上携带的是log2M个bit的信息。</span></li><li><span>波特baud实际上是单位时间传输码元的个数，（其实也是调制速率）乘以log2M后是单位时间传输的比特数bps</span></li></ul><p>&nbsp;</p><ul><li><span>带宽有两个：一个模拟信号里，单位是hz，仅仅是输入信号的最高最低频率差值；另一个是数字信号里，bps，</span></li><li><span>栋哥的音频里有说过，研究生时候还要专门来学香农定理的，所以要搞清楚现阶段是很麻烦不必要的。</span></li><li><span>奈氏准则：带宽受限、无早生，传输速率上限应该选用2W Baud或者2Wlog2M bps ，W就是模拟信号的带宽。</span></li><li><span>调制：数据变成模拟信号的过程。QAM，就是又改相位，每种相位下又改幅度（我也不晓得为啥不选相位下改频率的方式），但总之一个码元可以有更多种变化了，所以是4种相位乘以4种振幅=16</span></li><li><span>香农定理：带宽受限、有噪声。选择的上限应该选Wlog2(1+S/N)，S和N是信号、噪声俩的功率。信噪比如果给多少多少dB，它等于10* log10(S/N)，后者的是功率比，所以是把dB前的数先除以10，再10的相应次方就行了</span></li></ul></blockquote></li><li><p><span>T36，交换机的转发</span></p><blockquote><ul><li><span>交换机——工作于数据链路层，数据帧里的都是物理地址而非逻辑地址</span></li><li><span>转发的——一般是目的地址</span></li><li><span>PDU是什么：bit/frame/packet/segment这些。</span><a href='https://zh.wikipedia.org/wiki/协议数据单元'><span>分组 - 维基百科，自由的百科全书 (wikipedia.org)</span></a></li></ul></blockquote></li><li><p><span>T37. 介质访问控制之CSMA/CD  </span></p><blockquote><ul><li><span>介质访问控制。目的是防止局域网内共用信道时产生冲突。——也就是要分配信道。有静态分配、动态分配。动态分配里有轮询访问和随机访问，</span></li><li><span>CSMA：Carrier Sense Multiple Access 发送帧前，要侦听介质是否空闲。MA意味着常在总线型网络。</span></li><li><span>CSMA/CD： collision detection发送时也一边监听着。一般是有线局域网中。半双工网络。</span></li><li><span>为了避免传播时延τ对CS的影响，要控制帧的大小。帧的传输时延=</span><b><span>帧长/数据传输速率&gt;=2τ</span></b><span>，为什么争用期/冲突窗口是2τ？见</span><a href='https://www.youtube.com/watch?v=-LD2Qv5Jj78&amp;list=PLjAs5kw1NNs2hsblGz3WjBHs1EO8KcuZs&amp;index=33' target='_blank' class='url'>https://www.youtube.com/watch?v=-LD2Qv5Jj78&list=PLjAs5kw1NNs2hsblGz3WjBHs1EO8KcuZs&index=33</a><span> 但是btw，以太网规定帧长是64B-1518B，更小的都算作冲突产生的无效帧。</span></li><li><span>网络传输速度的Gbps的G是十进制，而存储的GB/s是二进制的。</span></li><li><span>什么时候重传？——截断二进制指数规避算法。规避时间为2τ，k=[重传次数，10]，r=[0,1,2,,,,2的k次方-1]重传所需要规避或者推迟的时间为2r τ选一个。重传次数到16时就放弃。——实验失败只能接受16次。</span></li></ul></blockquote></li><li><p><span>T39.TCP拥塞控制</span></p><blockquote><ul><li><p><span>拥塞控制：和可靠传输、流量控制不同，拥塞控制是防止全网络中数据过多。原理是发送窗口=min{接收窗口，拥塞窗口cwnd}、慢开始和拥塞避免（指数增大、加法增大、乘法减小ssthresh并重新指数增大...）或者快重传和快恢复（不用重新指数增大，而是从新的ssthresh开始加法增大）</span><a href='https://www.youtube.com/watch?v=fY36Z2BufXw&amp;list=PLjAs5kw1NNs0g63YIYzFjtBH4t-j2pwrl&amp;index=28' target='_blank' class='url'>https://www.youtube.com/watch?v=fY36Z2BufXw&list=PLjAs5kw1NNs0g63YIYzFjtBH4t-j2pwrl&index=28</a></p><p><img src="http://tc.wujiangang.com/2023/05/28/ac052fcee3f28.png" referrerpolicy="no-referrer" alt="image-20230528055233514"></p><p><span>ok那为什么慢开始和拥塞避免这种方法出现拥塞时要cwnd重新设置为1而不是慢开始门限ssthresh呢？为了使拥塞的路由器有时间把积压的处理完。而快重传快恢复方法中是收到3个确认而不是发生拥塞，所以不用等路由器扫积雪。</span></p></li><li><p><span>拥塞控制和流量控制的区别是什么？GPT回答：</span></p></li><li><p><a href='https://blog.csdn.net/weixin_39731083/article/details/81813774'><span>TCP传输中的拥塞控制和流量控制是两个不同的机制。流量控制是端到端的控制，例如A通过网络给B发数据，A发送的太快导致B没法接收（B缓冲窗口过小或者处理过慢），这时候的控制就是流量控制，原理是通过滑动窗口的大小改变来实现</span></a><a href='https://blog.csdn.net/weixin_39731083/article/details/81813774'><span>1</span></a><span>. </span><a href='https://zhuanlan.zhihu.com/p/37379780'><span>拥塞控制是作用于网络的，它是防止过多的数据注入到网络中，避免出现网络负载过大的情况。常用的方法就是：（1）慢开始、拥塞避免（2）快重传、快恢复</span></a><a href='https://zhuanlan.zhihu.com/p/37379780'><span>2</span></a><span>.</span></p><p><a href='https://blog.csdn.net/weixin_39731083/article/details/81813774'><span>举个例子，假设你正在下载一个文件，你的计算机和服务器之间有一个路由器。如果路由器缓存区满了，那么路由器就会丢弃一些数据包。这时候拥塞控制就会起作用，减少数据包的发送速率，以便路由器能够处理更多的数据包。而流量控制则是为了防止接收方来不及接收数据而产生的问题。例如，如果你正在下载一个文件，但是你的计算机处理速度太慢，那么发送方就需要减少发送速率以便接收方能够处理更多的数据包</span></a><a href='https://blog.csdn.net/weixin_39731083/article/details/81813774'><span>1</span></a><span>.</span></p><p><span>也就是说两种stuck产生原因不同，一个是接收方能力不足（也可以说传的太快了），一个是网络中转发能力不足（也可以说传得太快了）</span></p></li></ul></blockquote></li><li><p><span>T45.进程的同步、互斥占用缓冲区</span></p><blockquote><ul><li><span>它未必说要 get到P1产生的数作为P2或者P3的输入，只是确实用P1结果是奇数还是偶数可以用于实现互斥，不过这下P1占用50%次数，而另外两个各占25%了。</span></li><li><span>伪代码。是夹着中文的那种意思，基本上是看注释部分，比如if 八点钟 then 去吃饭。  就可以 if A /注释 then B /注释。</span></li></ul><p>&nbsp;</p></blockquote></li><li><p><span>T46.</span></p><blockquote><p><span>仔细看王道冲刺视频：</span><a href='https://www.youtube.com/watch?v=i3-hSk9NWtQ&amp;list=PLjAs5kw1NNs3Xud8c6lrimq1kCruYhoKa&amp;index=4' target='_blank' class='url'>https://www.youtube.com/watch?v=i3-hSk9NWtQ&list=PLjAs5kw1NNs3Xud8c6lrimq1kCruYhoKa&index=4</a></p><p><span>分配管理方式，分的是内存还是外存？——这是内存管理章节的。而只有虚拟存储器时才会让程序一部分在外存一部分在内存。所以用缺页中断让需要的进程部分从外存进入内存，同时修改页表项。</span></p><p><span>搞清楚慢表是在内存中的，访问慢表要100ns，访问快表则只要10ns</span></p><p><span>搞清楚缺页中断以后这里是会更新快表内容的，接下来只要访问快表就行了。</span></p><p><span>物理地址是 块号|页内偏移量   而不是 块号+页内偏移量 ，6！ 而分段存储管理方式似乎就是数字之和。</span></p><p>&nbsp;</p><p>&nbsp;</p></blockquote></li><li><p><span>T47.路由相关</span></p><blockquote><ul><li><span>子网划分。这题甚至没有牵涉子网掩码，只是在点分十进制的4个数后面/那个数，是0-32.但是子网IP地址一般选主机地址全为0的。</span></li><li><span>子网掩码就是A.B.C.D/N中，二进制里前面N位全部为1，其余全部为0形成的点分十进制数。</span></li><li><span>到互联网的路由为默认路由或缺省路由，0.0.0.0，子网掩码也是0.0.0.0</span></li><li><span>路由聚合技术？就是要减少其他路由表项的数目，从而表现得A.B.C.D/N，子网掩码a.b.c.d。把N减少，重新构建一个网络段的网络号A1.B1.C1.D1/N1 子网掩码a1.b1.c1.d1</span></li></ul></blockquote></li></ul><h2 id='还不熟练的'><span>还不熟练的：</span></h2><ul><li><span>满二叉树与平衡二叉树。</span></li><li><span>数据变量。</span></li></ul><blockquote><ul><li><span>short变量占2字节，int变量占4字节，byte才是取值范围在-128到127</span></li><li><span>但是二进制的加减法确实还不太熟练。</span></li></ul></blockquote><ul><li><span>T16.相对寻址EA=(PC)+A，</span></li><li><span>T20.总线带宽是每秒再总线上（不论并行还是串行）传输的位数（尽管是位数，但是一般给的本来就是传了多少多少B，所以不用慌“位数“这个概念）</span></li><li><span>T21.Cache命中率，原来就是这么简单吗？</span></li><li><span>T29. SCAN调度——如果已经是SCAN调度了，就要假设现在正在运行SCAN而不是要先回到原点再启动。</span></li><li><span>T35.GBN协议是使用累计确认方式。</span></li><li><span>T44. MDRout,Add,ACin是一个时钟周期内搞定的、MDRinE和MDRin的区别在于是从内总线来的还是存储器总线来的</span></li></ul><p>&nbsp;</p><h2 id='小结'><span>小结</span></h2><ol start='' ><li><span>花了三四天，大概17还是18道题是基本会做的，其他都不熟乃至完全忘得差不多了，很多都是之前老是碰到老是不会的。相信这样一波啃下来会清理干净不少痒点。</span></li><li><span>GPT和维基百科来直接对着概念学，快很多。 对着王道冲刺班还是慢了点，但是王道冲刺班有一些会有真题顺便讲解，对于非常顽固不太会的，可以来听听看看。再不行就去王道对应基础班板块再看一遍。</span></li><li><span>有些地方融入到生活中去讲述，还是显得有点乐趣了一些，比如活锁死锁、退避算法。</span></li></ol><p align="right">薛定墨</p>
+<p align="right">——2023.5.28</p><p>&nbsp;</p></div></div>
+</body>
+</html>
