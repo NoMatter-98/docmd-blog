@@ -2,7 +2,7 @@ module.exports = {
   siteTitle: '商子羽的博客',
   srcDir: 'docs',
   outputDir: 'site',
-  base: '/docmd-blog/',
+  base: '/',
   search: true,
   sidebar: {
     collapsible: true,
