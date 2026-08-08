@@ -1,5 +1,5 @@
 module.exports = {
-  siteTitle: '商子羽的博客',
+  siteTitle: '冰麒麟的博客',
   srcDir: 'docs',
   outputDir: 'site',
   base: '/',
@@ -21,7 +21,7 @@ module.exports = {
   copyCode: true,
   plugins: {
     seo: {
-      defaultDescription: '商子羽的个人博客 - 技术探索、读书笔记、影视评论和生活感悟。每个人都有权决定科技将怎样改变生活。',
+      defaultDescription: '冰麒麟的个人博客 - 技术探索、读书笔记、影视评论和生活感悟。',
       openGraph: {
         defaultImage: '/assets/images/og-default.png',
       },
@@ -54,7 +54,7 @@ module.exports = {
       ],
     },
   ],
-  footer: '© ' + new Date().getFullYear() + ' 商子羽 · 每个人都有权决定科技将怎样改变生活 · 由 [docmd](https://github.com/docmd-io/docmd) 强力驱动',
+  footer: '© ' + new Date().getFullYear() + ' 冰麒麟 · 苟日新，日日新，又日新 · 由 [docmd](https://github.com/docmd-io/docmd) 强力驱动',
   sponsor: {
     enabled: false,
   },
