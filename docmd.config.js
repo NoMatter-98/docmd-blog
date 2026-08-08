@@ -33,7 +33,7 @@ module.exports = {
   },
   navigation: [
     { title: '首页', path: '/', icon: 'home' },
-    { title: '一年几篇', path: '/一年几篇', icon: 'pen-square' },
+    { title: '年度文章', path: '/年度文章', icon: 'pen-square' },
     { title: '乃我族人', path: '/乃我族人', icon: 'sitemap' },
     {
       title: '归档',
